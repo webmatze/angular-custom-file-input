@@ -33,7 +33,7 @@
       if (attrs.hasOwnProperty('multiple')) {
         template.push('multiple');
       }
-      template.push('style="display:none"></input>');
+      template.push('style="display:none" />');
       template.push('<ng-transclude></ng-transclude>');
       template.push('<input type="button" value="{{ufc.value}}"');
       template.push('ng-click="ufc.openDialog()" ng-hide="ufc.hideDefault" />');
