@@ -7,6 +7,7 @@
     var directive = {
       restrict: 'E',
       replace: false,
+      transclude: true,
       scope: {
         types: '=',
         selectedFiles: '=',
@@ -33,7 +34,9 @@
         template.push('multiple');
       }
       template.push('style="display:none"></input>');
-      template.push('<input type="button" value="{{ufc.value}}" ng-click="ufc.openDialog()" />');
+      template.push('<ng-transclude></ng-transclude>');
+      template.push('<input type="button" value="{{ufc.value}}"');
+      template.push('ng-click="ufc.openDialog()" ng-hide="ufc.hideDefault" />');
       return template.join(' ');
     }
     
@@ -43,9 +46,15 @@
   function UploadFileController($scope) {
     var vm = this;
     vm.inputFileElement = null;
+    vm.hideDefault = false;
     vm.getMimeTypes = getMimeTypes;
     vm.openDialog = openDialog;
+    vm.hideDefaultButton = hideDefaultButton;
     
+    function hideDefaultButton() {
+      vm.hideDefault = true;
+    }
+   
     function getMimeTypes() {
       var mimeTypes = '';
       if (vm.types instanceof Array) {

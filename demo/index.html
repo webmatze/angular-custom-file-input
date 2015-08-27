@@ -11,7 +11,9 @@
 </head>
 <body ng-app="app">
   <form name="upload_form" ng-controller="UploadController as ul" ng-submit="ul.uploadFiles($event)">
-    <upload-file types="ul.fileTypes" selected-files="ul.selectedFiles" name="images" value="Bilder auswählen" multiple></upload-file>
+    <upload-file types="ul.fileTypes" selected-files="ul.selectedFiles" name="images" value="Select Pictures" multiple>
+      <button upload-click>Select Pictures ({{ul.selectedFiles.length}})</button>  
+    </upload-file>
     <input type="submit" value="Upload File" />
     <ul>
       <li ng-repeat="file in ul.selectedFiles">{{file.name}}</li>
