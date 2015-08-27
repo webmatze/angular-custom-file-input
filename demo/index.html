@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="description" content="Demo for angular-custom-file-input directive">
+  <script src="https://rawgit.com/angular/bower-angular/master/angular.js"></script>
+  <script src="../dist/angular-custom-file-input.min.js"></script>
+  <meta charset="utf-8">
+  <meta name="robots" content="noindex">
+  <title>DEMO Angular Custom File Input</title>
+</head>
+<body ng-app="app">
+  <form name="upload_form" ng-controller="UploadController as ul" ng-submit="ul.uploadFiles($event)">
+    <upload-file types="ul.fileTypes" selected-files="ul.selectedFiles" name="images" value="Bilder auswählen" multiple></upload-file>
+    <input type="submit" value="Upload File" />
+    <ul>
+      <li ng-repeat="file in ul.selectedFiles">{{file.name}}</li>
+    </ul>
+  </form>
+<script>
+(function() {
+  angular.module('app', ['angular-custom-file-input']);
+  angular.module('app').controller("UploadController", UploadController);
+  
+  UploadController.$inject = ["$scope"];
+  function UploadController($scope) {
+    var vm = this;
+    vm.fileTypes = ["image/jpeg", "image/gif", "image/png"];
+    vm.selectedFiles = [];
+    vm.uploadFiles = uploadFiles;
+    
+    $scope.$watch(function() { return vm.selectedFiles; }, function(currentValue) {
+      if (currentValue) {
+        console.log(currentValue);
+      }
+    });
+    
+    function uploadFiles($event) {
+      alert("Uploading files");
+    }
+  }
+})();
+</script>
+</body>
+</html>
