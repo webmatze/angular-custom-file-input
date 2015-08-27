@@ -1,0 +1,32 @@
+{
+  "generator-angular-package": {
+    "props": {
+      "author": {
+        "name": "Mathias Karstädt",
+        "email": "mathias.karstaedt@gmail.com"
+      },
+      "yourModule": {
+        "original": "angular-custom-file-input",
+        "camelized": "angularCustomFileInput",
+        "dasherized": "angular-custom-file-input",
+        "slugified": "angular-custom-file-input",
+        "parts": [
+          "angular",
+          "custom",
+          "file",
+          "input"
+        ]
+      },
+      "includeModuleDirectives": true,
+      "includeModuleFilters": false,
+      "includeModuleServices": true,
+      "includeModuleControllers": false,
+      "includeAngularModuleResource": false,
+      "includeAngularModuleCookies": false,
+      "includeAngularModuleSanitize": false,
+      "moduleDirectory": "modules/angular-custom-file-input",
+      "moduleUnitTestDirectory": "test/unit/angular-custom-file-input",
+      "moduleUnitE2eDirectory": "test/e2e/angular-custom-file-input"
+    }
+  }
+}
